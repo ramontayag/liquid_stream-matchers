@@ -1,6 +1,6 @@
 # LiquidStream::Matchers
 
-TODO: Write a gem description
+Add should-style matchers to test your [liquid streams](https://github.com/ramontayag/liquid_stream).
 
 ## Installation
 
@@ -18,7 +18,26 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Add this to your `spec_helper.rb`:
+
+    require "liquid_stream/matchers"
+
+Then use it:
+
+    class BlogStream
+
+      stream :posts
+      stream :popular_posts, as: PopularPosts
+
+    end
+
+
+    describe BlogStream
+
+      it { should stream(:posts) }
+      it { should stream(:posts).as(PopularPosts) }
+
+    end
 
 ## Contributing
 
